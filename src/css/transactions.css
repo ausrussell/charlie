@@ -1,0 +1,69 @@
+.transactions-deck {
+  width: 100%;
+  overflow-x: hidden;
+  padding: 1rem;
+  margin-top: 20px;
+}
+
+.time-card.ui.card {
+  width: inherit;
+  width: 100%;
+}
+.ui.card > :first-child {
+  background-color: #75d4d6;
+}
+
+.ui.card > .content > .header {
+  color: #fff;
+  display: flex;
+}
+
+.transaction-holder {
+  border-bottom: 1px solid #ccc;
+  perspective: 1000px;
+}
+
+.transaction-holder-main {
+  display: flex;
+  padding-bottom: 1em;
+}
+
+.card-header-total {
+  margin-left: auto;
+}
+
+.transactions-wrapper {
+  background-color: #fff;
+  height: 1000px;
+  position: absolute;
+  width: 100%;
+  top: 50px;
+}
+.transactions-holder {
+  padding: 0px;
+  padding: 0px;
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+}
+.transaction-amount {
+  margin-left: auto;
+}
+
+.transaction-unit {
+  padding: 1em;
+}
+
+.transaction-detail-wrapper {
+  perspective-origin: top;
+  perspective: 600px;
+  transform-style: preserve-3d;
+  margin-bottom: -10px;
+}
+
+.transaction-holder-detail {
+  transform-origin: top center;
+  background-image: linear-gradient(to bottom, #ccc, #fff);
+  transform: rotateX(-75deg) translateZ(2em);
+  border-bottom: 1px solid #ccc;
+}

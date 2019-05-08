@@ -1,0 +1,25 @@
+.top-header-name {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+.search-inactive {
+  height: 4em;
+}
+.search-active {
+  height: 6em;
+}
+
+.accordion.ui {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.search {
+  margin: 1em;
+}
+
+.magnifying-glass {
+  margin-left: auto;
+}

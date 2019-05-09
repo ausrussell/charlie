@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../css/search.css";
-import { Input, Accordion, Icon, Dropdown } from "semantic-ui-react";
+import { Input, Accordion, Icon, Dropdown, Button } from "semantic-ui-react";
 
 const storyOptions = [
   { key: "1", text: "6 months of Walmart", value: "1" },
@@ -10,19 +10,77 @@ const storyOptions = [
 ];
 
 const HeaderHero = props => {
+  const { title, cardCount, cardType, average, sumTotal, checkID } = props;
   return (
     <div className="header-hero">
-      <div className="header-hero__title">{props.title}</div>
-      <div className="header-hero__time">
-        {props.cardCount !== 0 && props.cardCount + " " + props.cardType + "s"}
-      </div>
-      <div className="header-hero__average">
-        {props.average !== 0 &&
-          "Average per " + props.cardType + " : $" + props.average}
-      </div>
-      <div className="header-hero__sum-total">
-        {props.sumTotal !== 0 && "Total: $" + props.sumTotal}
-      </div>
+      <div className="header-hero__title">{title}</div>
+      {!checkID && (
+        <div className="header-hero__time">
+          {cardCount !== 0 && cardCount + " " + cardType + "s"}
+        </div>
+      )}
+      {!checkID && (
+        <div className="header-hero__average">
+          {average > 0 ? (
+            <div className="header-hero__average">
+              Average spend per {cardType} : ${average}
+            </div>
+          ) : (
+            <div className="header-hero__average total-positive">
+              Average savings per {cardType} : ${average * -1}
+            </div>
+          )}
+        </div>
+      )}
+
+      {sumTotal > 0 ? (
+        <div className="header-hero__sum-total">Total: ${sumTotal}</div>
+      ) : (
+        !checkID && (
+          <div className="header-hero__sum-total total-positive">
+            Total: ${sumTotal * -1}
+          </div>
+        )
+      )}
+
+      {cardCount === 7 && (
+        <div className="target-button">
+          <Button animated color="green" compact>
+            <Button.Content visible>
+              <Icon name="bullseye" />
+              Set a target
+            </Button.Content>
+            <Button.Content hidden>
+              Save ${parseInt(average * -1)} per week!
+            </Button.Content>
+          </Button>
+        </div>
+      )}
+
+      {cardCount === 6 && (
+        <div className="target-button">
+          <Button animated color="green" compact>
+            <Button.Content visible>
+              <Icon name="bullseye" />
+              Target monthly
+            </Button.Content>
+            <Button.Content hidden>
+              Save ${parseInt(average)} per month!
+            </Button.Content>
+          </Button>
+        </div>
+      )}
+
+      {checkID > 0 && (
+        <div className="target-button">
+          <Button animated color="green" compact>
+            <Button.Content visible>
+              <Icon name="eye" />
+              Watch transaction
+            </Button.Content>
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
@@ -103,6 +161,7 @@ class Header extends Component {
             cardType={this.props.cardType}
             average={this.props.average}
             sumTotal={this.props.sumTotal}
+            checkID={this.props.checkID}
           />
         )}
       </div>

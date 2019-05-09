@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
+import { Button, Icon } from "semantic-ui-react";
 const Transaction = txn => {
   const { id, name, amount, category, account_name, checkID } = txn;
   const [open, set] = useState(() => {
@@ -42,14 +43,25 @@ const Transaction = txn => {
     >
       <div className="transaction-holder-main">
         <div className="transaction-merchant">{name}</div>
-        <div className="transaction-amount">${amount}</div>
+        {amount > 0 ? (
+          <div className="transaction-amount">${amount}</div>
+        ) : (
+          <div className="transaction-amount card-deposit">${amount * -1}</div>
+        )}
       </div>
       <div className="transaction-detail-wrapper">
         <animated.div className="transaction-holder-detail" style={txnProps}>
-          {category}
-          <div className="transaction-account_name">{account_name}</div>
-          <div style={{ color: "#75d4d6" }}>
-            Set a goal for transactions like this
+          <div>
+            Category: {category}
+            <div className="transaction-account_name">
+              Account: {account_name}
+            </div>
+          </div>
+          <div className="transaction-button">
+            <Button size="mini" basic color="green">
+              <Icon name="bullseye" />
+              Target
+            </Button>
           </div>
         </animated.div>
       </div>

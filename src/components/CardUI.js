@@ -30,7 +30,11 @@ const CardUI = props => {
       <Card.Content>
         <Card.Header onClick={clickHandler}>
           {date}
-          <div className="card-header-total">${total}</div>
+          {total < 0 ? (
+            <div className="card-header-total card-deposit">${total * -1}</div>
+          ) : (
+            <div className="card-header-total">${total}</div>
+          )}
         </Card.Header>
       </Card.Content>
       <animated.div className="transactions-wrapper" style={wrapperProps}>

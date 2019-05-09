@@ -18,6 +18,13 @@
   display: flex;
 }
 
+.card-deposit {
+  background: #fff;
+  color: green;
+  padding: 0.1em;
+  border-radius: 4px;
+}
+
 .transaction-holder {
   border-bottom: 1px solid #ccc;
   perspective: 1000px;
@@ -62,8 +69,14 @@
 }
 
 .transaction-holder-detail {
+  display: flex;
   transform-origin: top center;
   background-image: linear-gradient(to bottom, #ccc, #fff);
   transform: rotateX(-75deg) translateZ(2em);
   border-bottom: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.transaction-button {
+  margin-left: auto;
 }

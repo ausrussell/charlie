@@ -28,19 +28,26 @@ h2 {
 .header-hero {
   background-image: -webkit-radial-gradient(49% 38%, circle, #ffe161, #ffce00);
   background-image: radial-gradient(circle at 49% 38%, #ffe161, #ffce00);
-  border-bottom-left-radius: 1000px;
-  border-bottom-right-radius: 1000px;
+  border-bottom-left-radius: 300px;
+  border-bottom-right-radius: 300px;
   position: relative;
   overflow: hidden;
   z-index: auto;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+.header-hero > div {
+  margin: 0.2em;
+}
+
+.header-hero > div.target-button {
+  margin-bottom: 2em;
+}
+
 .header-hero__title {
-  margin: 1em;
+  margin-top: 1em !important;
   border-radius: 1em;
   background-color: white;
   padding: 0.5em 1em;
@@ -55,4 +62,11 @@ h2 {
 }
 .header-hero__sum-total {
   padding: 0.5em;
+}
+
+.total-positive {
+  background: #fff;
+  color: green;
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
 }

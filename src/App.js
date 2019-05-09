@@ -24,7 +24,8 @@ class App extends Component {
         cardType: "day",
         transactions: data,
         cardCount: 0,
-        term: term
+        term: term,
+        checkID: 0
       });
       console.log("data:", data);
     });
@@ -100,6 +101,7 @@ class App extends Component {
           showHero={showHero}
           average={average}
           sumTotal={sumTotal}
+          checkID={checkID}
         />
         <TransactionsDeck
           transactions={this.state.transactions}
